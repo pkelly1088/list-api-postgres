@@ -15,7 +15,7 @@ const getUsers = (request, response) => {
       if (error) {
         throw error
       }
-      response.header("Access-Control-Allow-Origin", "http://localhost:3000")
+      response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000")
       response.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested, Content-Type, Accept Authorization"
