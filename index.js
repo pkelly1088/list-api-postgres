@@ -1,16 +1,15 @@
 require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require("morgan");
+const cors = require("cors");
 const app = express();
 const db = require('./queries');
 const port = process.env.PG_PORT || 3001;
 
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
+app.use(morgan("dev"));
+app.use(express.json())
+app.use(cors());
 
 app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
